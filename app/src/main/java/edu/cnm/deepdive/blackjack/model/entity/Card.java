@@ -74,7 +74,6 @@ public class Card {
   public void setUpdated(@NonNull Date updated) {
     this.updated = updated;
   }
-
   public Long getShoeId() {
     return shoeId;
   }
