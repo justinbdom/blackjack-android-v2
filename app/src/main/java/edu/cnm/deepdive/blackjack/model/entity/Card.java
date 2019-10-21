@@ -114,6 +114,9 @@ public class Card {
     return rank.getSymbol() + suit.getSymbol();
   }
 
+  public String getAbbreviation() {
+    return rank.getAbbreviation() + suit.getAbbreviation();
+  }
   public enum Rank {
 
     ACE,
@@ -132,9 +135,15 @@ public class Card {
 
     private static final String[] SYMBOLS =
         {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+    private static final String[] ABBREVIATIONS =
+        {"A", "2", "3", "4", "5", "6", "7", "8", "9", "0", "J", "Q", "K"};
 
     public String getSymbol() {
       return SYMBOLS[ordinal()];
+    }
+
+    public String getAbbreviation() {
+      return ABBREVIATIONS[ordinal()];
     }
 
   }
@@ -148,6 +157,8 @@ public class Card {
 
     private static final String[] SYMBOLS = {"\u2663", "\u2662", "\u2661", "\u2660"};
 
+    private static final String[] ABBREVIATIONS = {"C", "D", "H", "S"};
+
     public String getSymbol() {
       return SYMBOLS[ordinal()];
     }
@@ -156,6 +167,9 @@ public class Card {
       return (ordinal() % 3 == 0) ? Color.BLACK : Color.RED;
     }
 
+    public String getAbbreviation() {
+      return ABBREVIATIONS[ordinal()];
+    }
     public enum Color {
       BLACK, RED;
     }
