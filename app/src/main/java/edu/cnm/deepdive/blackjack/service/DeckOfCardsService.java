@@ -30,7 +30,7 @@ public interface DeckOfCardsService {
   @GET("api/deck/{shoeKey}/shuffle/")
   Single<Shoe> shuffle(@Path("shoeKey") String shoeKey);
 
-  default URL getImageUrl(Card card) {
+  static URL getImageUrl(Card card) {
     try {
       String baseUrl = BuildConfig.BASE_URL;
       String imagePattern = BuildConfig.STATIC_IMAGE_PATTERN;

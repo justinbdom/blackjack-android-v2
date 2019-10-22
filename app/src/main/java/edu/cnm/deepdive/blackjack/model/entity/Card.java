@@ -11,12 +11,6 @@ import java.util.Date;
 @Entity(
     foreignKeys = {
         @ForeignKey(
-            entity = Shoe.class,
-            childColumns = "shoe_id",
-            parentColumns = "shoe_id",
-            onDelete = ForeignKey.CASCADE
-        ),
-        @ForeignKey(
             entity = Hand.class,
             childColumns = "hand_id",
             parentColumns = "hand_id",
@@ -94,6 +88,9 @@ public class Card {
 
   public String getAbbreviation() {
     return rank.getAbbreviation() + suit.getAbbreviation();
+  }
+
+  public void setShoeId(long shoeId) {
   }
 
   public enum Rank {
