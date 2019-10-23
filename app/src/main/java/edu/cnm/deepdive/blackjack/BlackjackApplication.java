@@ -4,14 +4,20 @@ import android.app.Application;
 import com.facebook.stetho.Stetho;
 import com.squareup.picasso.Picasso;
 import edu.cnm.deepdive.blackjack.service.BlackjackDatabase;
+import edu.cnm.deepdive.blackjack.service.GoogleSingInService;
 
 public class BlackjackApplication extends Application {
 
   @Override
   public void onCreate() {
     super.onCreate();
+    GoogleSingInService.setApplicationContext(this);
     Stetho.initializeWithDefaults(this);
-    Picasso.setSingletonInstance(new Picasso.Builder(this).build());
+    Picasso.setSingletonInstance(
+        new Picasso.Builder(this)
+            .loggingEnabled(true)
+            .build()
+    );
     BlackjackDatabase.setApplicationContext(this);
     final BlackjackDatabase database = BlackjackDatabase.getInstance();
     new Thread(new Runnable() {
